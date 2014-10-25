@@ -52,7 +52,7 @@ static int in_arcnet(char *bufp, struct sockaddr *sap)
     int i, val;
 
     sap->sa_family = arcnet_hwtype.type;
-    ptr = sap->sa_data;
+    ptr = (unsigned char*)sap->sa_data;
 
     i = 0;
     orig = bufp;

@@ -54,7 +54,7 @@ static char *UNSPEC_sprint(struct sockaddr *sap, int numeric)
 
     if (sap->sa_family == 0xFFFF || sap->sa_family == 0)
 	return safe_strncpy(buf, _("[NONE SET]"), sizeof(buf));
-    return (UNSPEC_print(sap->sa_data));
+    return (UNSPEC_print((unsigned char*)sap->sa_data));
 }
 
 
@@ -63,7 +63,7 @@ static char *UNSPEC_sprint(struct sockaddr *sap, int numeric)
 /* Display a UNIX domain address. */
 static char *UNIX_print(unsigned char *ptr)
 {
-    return (ptr);
+    return (char*)(ptr);
 }
 
 
@@ -74,7 +74,7 @@ static char *UNIX_sprint(struct sockaddr *sap, int numeric)
 
     if (sap->sa_family == 0xFFFF || sap->sa_family == 0)
 	return safe_strncpy(buf, _("[NONE SET]"), sizeof(buf));
-    return (UNIX_print(sap->sa_data));
+    return (UNIX_print((unsigned char *)sap->sa_data));
 }
 
 

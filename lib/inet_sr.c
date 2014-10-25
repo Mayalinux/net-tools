@@ -104,8 +104,7 @@ static int INET_setroute(int action, int options, char **args)
        isnet = 1; break;
     case 2:
        isnet = 0; break;
-    default:
-    }
+}
 
     /* Fill in the other fields. */
     rt.rt_flags = (RTF_UP | RTF_HOST);

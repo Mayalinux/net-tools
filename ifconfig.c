@@ -213,14 +213,11 @@ static void version(void)
 
 static int set_netmask(int skfd, struct ifreq *ifr, struct sockaddr *sa)
 {
-    int err = 0;
-
     memcpy((char *) &ifr->ifr_netmask, (char *) sa,
 	   sizeof(struct sockaddr));
     if (ioctl(skfd, SIOCSIFNETMASK, ifr) < 0) {
 	fprintf(stderr, "SIOCSIFNETMASK: %s\n",
 		strerror(errno));
-	err = 1;
     }
     return 0;
 }
