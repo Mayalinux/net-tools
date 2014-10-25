@@ -1,0 +1,34 @@
+--- config.h.old	2014-10-25 11:08:31.432464279 +0200
++++ config.h	2014-10-25 11:16:13.792462738 +0200
+@@ -31 +31 @@
+-#define HAVE_AFINET6 0
++#define HAVE_AFINET6 1
+@@ -33,3 +33,3 @@
+-#define HAVE_AFATALK 1
+-#define HAVE_AFAX25 1
+-#define HAVE_AFNETROM 1
++#define HAVE_AFATALK 0
++#define HAVE_AFAX25 0
++#define HAVE_AFNETROM 0
+@@ -37 +37 @@
+-#define HAVE_AFX25 1
++#define HAVE_AFX25 0
+@@ -52,3 +52,3 @@
+-#define HAVE_HWSTRIP 1
+-#define HAVE_HWTR 1
+-#define HAVE_HWAX25 1
++#define HAVE_HWSTRIP 0
++#define HAVE_HWTR 0
++#define HAVE_HWAX25 0
+@@ -56,4 +56,4 @@
+-#define HAVE_HWNETROM 1
+-#define HAVE_HWX25 1
+-#define HAVE_HWFR 1
+-#define HAVE_HWSIT 0
++#define HAVE_HWNETROM 0
++#define HAVE_HWX25 0
++#define HAVE_HWFR 0
++#define HAVE_HWSIT 1
+@@ -64 +64 @@
+-#define HAVE_HWIRDA 1
++#define HAVE_HWIRDA 0
