@@ -4,6 +4,9 @@ NET-TOOLS
 # Original project page
   [http://net-tools.sourceforge.net/](http://net-tools.sourceforge.net/ "Project page")
 
+# Create a *config.h.patch* file
+  Run `make config`, copy your *config.h* flie to another location, edit *config.h* and `diff -u0 config.h.orig config.h >config.h.patch`.
+
 # Notes
   If you fork this, be sure to edit config.h.patch accordingly (better if you setup your own) to set package capabilities.
   
