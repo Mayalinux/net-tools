@@ -88,7 +88,7 @@ endif
 
 # Compiler and Linker Options
 # You may need to uncomment and edit these if you are using libc5 and IPv6.
-COPTS = -D_GNU_SOURCE -O2 -Wall # -I/usr/inet6/include
+override COPTS := -D_GNU_SOURCE -O2 -Wall $(COPTS) # -I/usr/inet6/include
 ifeq ($(origin LOPTS), undefined)
 LOPTS = 
 endif
@@ -132,7 +132,7 @@ MDEFINES = COPTS='$(COPTS)' LOPTS='$(LOPTS)' TOPDIR='$(TOPDIR)'
 
 all:		config.h version.h subdirs $(PROGS)
 
-config: 	cleanconfig config.h config.h-patch
+config: 	cleanconfig config.h
 
 install:	all savebin installbin installdata
 
@@ -162,14 +162,15 @@ dist: 		clobber
 config.h: 	config.in Makefile 
 		@echo "Configuring the Linux net-tools (NET-3 Base Utilities)..." ; echo
 		@if [ config.status -nt config.in ]; \
-			then ./configure.sh config.status; \
-		   else ./configure.sh config.in; \
+			then yes '' | ./configure.sh config.status; \
+		   else yes '' | ./configure.sh config.in; \
 		 fi
+		 $(MAKE) config.h-patch
 
 
-config.h-path:
+config.h-patch:
 	@echo "Applying path to config.h..."
-	patch -p0 <config.h.path
+	patch -p0 <config.h.patch
 
 version.h:	Makefile
 		@echo "#define RELEASE \"net-tools $(RELEASE)\"" >version.h
